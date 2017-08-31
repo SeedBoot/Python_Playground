@@ -61,3 +61,5 @@ print(tuple_1_list)
 my_dict = {
   "Name": "Oli",
   "Number": 912384092384}
+
+#https://realpython.com/learn/python-first-steps/
