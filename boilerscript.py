@@ -9,24 +9,25 @@ A boilerplate static HTML website creator
 """
 #!/usr/bin/env python
 
-import os
-import shutil
+from os import mkdir
+from shutil import copy2
 
-ROOT = 'C:/script/boilerscript/'
+ROOT = 'C:/script/'
 
 SRC = {
-    'html': ROOT + 'index.html', 'css': ROOT + 'style.css',
-    'js': ROOT + 'script.js'
+    'html': ROOT + 'boilerscript/index.html',
+    'css': ROOT + 'boilerscript/style.css',
+    'js': ROOT + 'boilerscript/script.js'
 }
-
 DEST = {
-    'html': 'index.html', 'css': 'style/style.css',
+    'html': 'index.html',
+    'css': 'style/style.css',
     'js': 'script/script.js'
 }
 
-os.mkdir('style')
-os.mkdir('script')
+mkdir('style')
+mkdir('script')
 
-shutil.copy2(SRC['html'], DEST['html'])
-shutil.copy2(SRC['css'], DEST['css'])
-shutil.copy2(SRC['js'], DEST['js'])
+copy2(SRC['html'], DEST['html'])
+copy2(SRC['css'], DEST['css'])
+copy2(SRC['js'], DEST['js'])
