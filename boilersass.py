@@ -14,11 +14,11 @@ import os
 import shutil
 
 # Variables for HTML and JS generation
-ROOT = 'C:/script/'
+ROOT = 'C:/script/asset/'
 
 SRC = {
-    'html': ROOT + 'asset/index.html',
-    'js': ROOT + 'asset/script.js'
+    'html': ROOT + 'index.html',
+    'js': ROOT + 'script.js'
 }
 DEST = {
     'html': 'index.html',
@@ -27,7 +27,7 @@ DEST = {
 
 # Variables for SCSS folders and files
 STYLE_FOLDER = ['import', 'export']
-SCSS_FILE = ['asset/style.scss', 'asset/_var.scss']
+SCSS_FILE = [ROOT + 'style.scss', ROOT + '_var.scss']
 
 # Generate script and style folders
 os.mkdir('script')
