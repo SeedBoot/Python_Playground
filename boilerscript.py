@@ -17,9 +17,9 @@ from shutil import copy2
 ROOT = 'C:/script/'
 
 SRC = {
-    'html': ROOT + 'boilerscript/index.html',
-    'css': ROOT + 'boilerscript/style.css',
-    'js': ROOT + 'boilerscript/script.js'
+    'html': ROOT + 'asset/index.html',
+    'css': ROOT + 'asset/style.css',
+    'js': ROOT + 'asset/script.js'
 }
 DEST = {
     'html': 'index.html',
