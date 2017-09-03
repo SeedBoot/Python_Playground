@@ -9,9 +9,11 @@ A boilerplate static HTML website creator
 """
 #!/usr/bin/env python
 
+# Imports
 from os import mkdir
 from shutil import copy2
 
+# Variables for file generation
 ROOT = 'C:/script/'
 
 SRC = {
@@ -25,9 +27,11 @@ DEST = {
     'js': 'script/script.js'
 }
 
+# Generate style and script folders
 mkdir('style')
 mkdir('script')
 
+# Copy files into directory
 copy2(SRC['html'], DEST['html'])
 copy2(SRC['css'], DEST['css'])
 copy2(SRC['js'], DEST['js'])
