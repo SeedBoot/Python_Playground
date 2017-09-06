@@ -75,6 +75,7 @@ shutil.copy2(JS_FILE[0], JS_FILE[1])
 ####################
 # SYSTEM FUNCTIONS #
 ####################
+
 # Opens a new cmd to listen for import:export SCSS files
 os.system('start cmd /c sass --watch style/import:style/export')
 
