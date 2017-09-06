@@ -1,5 +1,5 @@
 """
-A boilerpate PHP/ SCSS workspace
+A boilerplate PHP/ SCSS workspace
 
 -   Place this script and the folder in 'C:/script' or similar
     and point your PATH to that folder.
@@ -9,25 +9,48 @@ A boilerpate PHP/ SCSS workspace
 """
 #!/usr/bin/env python
 
-# Imports
+###########
+# IMPORTS #
+###########
+
 import os
 import shutil
+import subprocess
 
-# Variables for HTML and JS generation
+#############
+# VARIABLES #
+#############
+
+# ROOT FOLDER FOR ASSETS #
 ROOT = 'C:/script/asset/'
 
-SRC = {
-    'html': ROOT + 'index.html',
-    'js': ROOT + 'script.js'
-}
-DEST = {
-    'html': 'index.html',
-    'js': 'script/script.js'
-}
+# Lists etc. for SCSS folders and files
+STYLE_FOLDER = [
+    'import',
+    'export'
+]
 
-# Variables for SCSS folders and files
-STYLE_FOLDER = ['import', 'export']
-SCSS_FILE = [ROOT + 'style.scss', ROOT + '_var.scss']
+SCSS_DEST = 'style/import/'
+
+SCSS_FILE = [
+    ROOT + 'style.scss',
+    ROOT + '_var.scss'
+]
+
+# PHP variables
+PHP_INC = ROOT + 'includes'
+
+PHP_FILE = ROOT + 'index.php'
+
+# List for JS generation
+JS_FILE = [
+    ROOT + 'script.js',
+    'script/'
+]
+
+################################################################
+os.chdir('test')
+################################################################
 
 # Generate script and style folders
 os.mkdir('script')
@@ -37,14 +60,23 @@ os.mkdir('style')
 for folder in STYLE_FOLDER:
     os.mkdir(os.path.join('style', folder))
 
-# Copy HTML, JS and SCSS files into directory
-shutil.copy2(SRC['html'], DEST['html'])
-shutil.copy2(SRC['js'], DEST['js'])
-shutil.copy2(SCSS_FILE[0], 'style/import/')
-shutil.copy2(SCSS_FILE[1], 'style/import/')
+# Copy SCSS files into import folder
+for i in SCSS_FILE:
+    shutil.copy2(i, SCSS_DEST)
 
+# Copy PHP files
+shutil.copytree(PHP_INC, 'includes')
+
+shutil.copy2(PHP_FILE, 'index.php')
+
+# Copy JS files
+shutil.copy2(JS_FILE[0], JS_FILE[1])
+
+####################
+# SYSTEM FUNCTIONS #
+####################
 # Opens a new cmd to listen for import:export SCSS files
 os.system('start cmd /c sass --watch style/import:style/export')
 
-
-#C:\wamp64\wampmanager.exe
+#Opens Wamp
+subprocess.call("C:\\wamp64\\wampmanager.exe", shell=True)
